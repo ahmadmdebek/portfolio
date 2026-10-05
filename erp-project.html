@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Business Central-Inspired Mini ERP</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="erp-project.css">
+</head>
+
+<body>
+
+        <!-- Navigation -->
+
+        <nav class="project-nav">
+
+        <a href="index.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Portfolio
+        </a>
+
+        </nav>
+
+
+        <!-- Project Header -->
+
+        <section class="project-header">
+
+        <div class="project-icon">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+
+        <div class="featured-label">
+            <i class="fa-solid fa-star"></i>
+            Featured ERP Project
+        </div>
+
+        <h1>Business Central-Inspired Mini ERP</h1>
+
+        <p>
+        A full-stack ERP project inspired by common
+        Microsoft Dynamics 365 Business Central processes.
+        </p>
+
+        </section>
+
+
+        <!-- Project Overview -->
+
+        <section class="project-section">
+
+        <h2>Project Overview</h2>
+
+        <p>
+        This project is a full-stack ERP-style application designed
+        to manage customers, vendors, products, inventory, sales orders,
+        purchase orders, and inventory transactions.
+        </p>
+
+        <p>
+        The project focuses not only on software development,
+        but also on understanding and implementing common ERP
+        business processes.
+        </p>
+
+        </section>
+
+
+        <!-- Technologies -->
+
+        <section class="technology-section">
+
+        <h2>Technologies Used</h2>
+
+        <div class="technology-grid">
+
+        <div class="technology">
+        <i class="fa-brands fa-html5"></i>
+        <span>HTML</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-brands fa-css3-alt"></i>
+        <span>CSS</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-brands fa-js"></i>
+        <span>JavaScript</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-solid fa-code"></i>
+        <span>C#</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-solid fa-server"></i>
+        <span>ASP.NET Core</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-solid fa-database"></i>
+        <span>SQL Server</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-solid fa-network-wired"></i>
+        <span>REST API</span>
+        </div>
+
+        <div class="technology">
+        <i class="fa-solid fa-code-branch"></i>
+        <span>Entity Framework Core</span>
+        </div>
+
+        </div>
+
+        </section>
+
+
+        <!-- Main Features -->
+
+        <section class="project-section">
+
+        <h2>Key Features</h2>
+
+        <div class="feature-grid">
+
+        <div class="feature">
+        <i class="fa-solid fa-users"></i>
+        <h3>Customer Management</h3>
+        <p>
+        Create, view, update and manage customer information.
+        </p>
+        </div>
+
+        <div class="feature">
+        <i class="fa-solid fa-truck"></i>
+        <h3>Vendor Management</h3>
+        <p>
+        Manage vendors and their product relationships.
+        </p>
+        </div>
+
+        <div class="feature">
+        <i class="fa-solid fa-box"></i>
+        <h3>Inventory Management</h3>
+        <p>
+        Track stock quantities and inventory transactions.
+        </p>
+        </div>
+
+        <div class="feature">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Sales Orders</h3>
+        <p>
+        Create sales orders and manage fulfillment and posting.
+        </p>
+        </div>
+
+        <div class="feature">
+        <i class="fa-solid fa-file-invoice"></i>
+        <h3>Purchase Orders</h3>
+        <p>
+        Create and receive purchase orders for inventory replenishment.
+        </p>
+        </div>
+
+        <div class="feature">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h3>Shortage Handling</h3>
+        <p>
+        Detect insufficient inventory and handle partial fulfillment
+        and replenishment.
+        </p>
+        </div>
+
+        </div>
+
+        </section>
+
+
+        <!-- Architecture -->
+
+        <section class="architecture-section">
+
+        <h2>System Architecture</h2>
+
+        <div class="architecture">
+
+        <div>HTML / CSS</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>JavaScript</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>ASP.NET Core REST API</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Entity Framework Core</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>SQL Server</div>
+
+        </div>
+
+        <p class="architecture-description">
+        JSON is used to exchange data between the frontend
+        and the REST API.
+        </p>
+
+        </section>
+
+
+        <!-- Business Process -->
+
+        <section class="project-section">
+
+        <h2>Inventory Shortage Workflow</h2>
+
+        <p>
+        One of the main business scenarios implemented in the project
+        is handling a sales order when there is not enough inventory.
+        </p>
+
+        <div class="workflow">
+
+        <div>Customer orders 10 laptops</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>6 laptops available</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Shortage of 4 laptops</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Partial fulfillment of 6</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Purchase Order for 4</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Receive 4 laptops</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Fulfill remaining 4</div>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+        <div>Sales Order Posted</div>
+
+        </div>
+
+        </section>
+
+
+        <!-- Business Central Mapping -->
+
+        <section class="business-section">
+
+        <h2>Business Central Concept Mapping</h2>
+
+        <div class="mapping">
+
+        <div>
+        <strong>ERP Product</strong>
+        <span>→ Business Central Item</span>
+        </div>
+
+        <div>
+        <strong>Customer</strong>
+        <span>→ Business Central Customer</span>
+        </div>
+
+        <div>
+        <strong>Supplier</strong>
+        <span>→ Business Central Vendor</span>
+        </div>
+
+        <div>
+        <strong>Sales Order</strong>
+        <span>→ Business Central Sales Order</span>
+        </div>
+
+        <div>
+        <strong>Purchase Order</strong>
+        <span>→ Business Central Purchase Order</span>
+        </div>
+
+        <div>
+        <strong>Inventory Transactions</strong>
+        <span>→ Item Ledger Entry concepts</span>
+        </div>
+
+        </div>
+
+        </section>
+
+
+        <!-- Screenshots -->
+
+        <section class="project-section">
+
+        <h2>Project Screenshots</h2>
+
+        <div class="screenshots">
+
+        <div class="screenshot">
+            <img src="images/erp-dashboard.png" alt="ERP-Dashboard">
+        </div>
+
+        <div class="screenshot">
+            <img src="images/erp-inventory.png" alt="ERP-Inventory">
+        </div>
+
+        <div class="screenshot">
+             <img src="images/erp-salesorder.png" alt="ERP-SalesOrder">
+        </div>
+
+        <div class="screenshot">
+            <img src="images/erp-purchaseorder.png" alt="ERP-PurchaseOrder">
+        </div>
+
+        </div>
+
+        </section>
+
+
+        <!-- Disclaimer -->
+
+        <section class="project-note">
+
+        <p>
+        This is a standalone ERP project inspired by
+        Microsoft Dynamics 365 Business Central processes.
+        It is not a Microsoft Dynamics 365 Business Central implementation.
+        </p>
+
+        </section>
+
+       <button id="scrollTopBtn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button> 
+
+        <script>
+        const navbar = document.querySelector('.nav-links');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("show");
+    } else {
+        scrollTopBtn.classList.remove("show");
+    }
+});
+
+scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+    </script> 
+
+</body>
+
+</html>
