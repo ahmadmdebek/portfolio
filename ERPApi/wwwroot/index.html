@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini ERP Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-cubes"></i> Mini ERP Dashboard</h1>
+    </header>
+
+   <nav>
+
+    <button id="dashboardBtn" class="input-style-btn">
+        <i class="fa-solid fa-gauge-high"></i> DASHBOARD
+    </button>
+
+    <div class="dropdown">
+        <button id="usersBtn" class="input-style-btn">
+            <i class="fa-solid fa-users"></i> USERS <i class="fa-solid fa-angles-down"></i>
+        </button>
+
+        <div id="usersMenu" class="dropdown-menu hidden">
+            <button id="customersBtn">CUSTOMERS <i class="fa-solid fa-user"></i></button>
+            <button id="suppliersBtn">SUPPLIERS <i class="fa-solid fa-truck-ramp-box"></i></button>
+        </div>
+    </div>
+
+    <button id="productsBtn" class="input-style-btn">
+        <i class="fa-solid fa-tags"></i> PRODUCTS
+    </button>
+
+    <div class="dropdown">
+        <button id="orderBtn" class="input-style-btn">
+            <i class="fa-solid fa-list"></i> ORDERS <i class="fa-solid fa-angles-down"></i>
+        </button>
+
+        <div id="orderMenu" class="dropdown-menu hidden"> 
+    <button id="ordersBtn" class="input-style-btn">
+        SALES ORDERS <i class="fa-solid fa-cart-shopping"></i>
+    </button>
+
+    <button id="purchaseOrdersBtn" class="input-style-btn">
+        PURCHASE ORDERS <i class="fa-solid fa-truck"></i>
+    </button>
+        </div>
+    </div>
+
+    <button id="inventoryBtn" class="input-style-btn">
+       <i class="fa-solid fa-warehouse"></i> INVENTORY
+    </button>
+
+</nav>
+
+
+    <main>
+
+        <section  id="dashboardSection">
+
+          <div class="dashboard-cards">  
+            <div class="card">
+                <h2><i class="fa-solid fa-user"></i> CUSTOMERS</h2>
+                <p id="customerCount">0</p>
+            </div>
+
+             <div class="card">
+                <h2><i class="fa-solid fa-truck-ramp-box"></i> SUPPLIERS</h2>
+                <p id="supplierCount">0</p>
+            </div>
+
+            <div class="card">
+                <h2><i class="fa-solid fa-tags"></i> PRODUCTS</h2>
+                <p id="productCount">0</p>
+            </div>
+
+
+            <div class="card">
+                <h2><i class="fa-solid fa-cart-arrow-down"></i> ORDERS</h2>
+                <p id="orderCount">0</p>
+            </div>
+
+             <div class="card">
+                <h2><i class="fa-solid fa-receipt"></i> PURCHASE RECEIPTS</h2>
+                <p id="purchaseCount">0</p>
+            </div>
+
+            <div class="card">
+                <h2><i class="fa-solid fa-sack-dollar"></i> TOTAL SALES REVENUE </h2>
+                <p id="salesCount">0</p>
+            </div>
+
+        </div>  
+            <div class="dashboard-panel">
+            <h2><i class="fa-solid fa-chart-pie"></i> INVENTORY OVERVIEW</h2>
+            <p>Monitor Stock Levels and Identity Products that Need Attention.</p>
+            <table>
+                <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Available Stock</th>
+                            <th>Status</th>
+                        </tr>
+                </thead>
+                <tbody id="dashboardInventoryTable"></tbody>
+            </table>
+
+            </div>
+
+                    <div class="dashboard-panel">
+                <h2><i class="fa-solid fa-clock-rotate-left"></i> Recent Sales Orders</h2>
+                <p>View the Latest Sales Orders and their Current Status.</p>
+
+                <table>
+                <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Order Date</th>
+                            <th>Status</th>
+                        </tr>
+                </thead>
+
+                <tbody id="dashboardRecentOrdersTable"></tbody>
+                </table>
+                </div>
+
+                <div class="dashboard-panel">
+                    <h2><i class="fa-solid fa-inbox"></i> Incoming Purchase Orders</h2>
+                    <p>Monitor purchase orders that are still waiting to be received.</p>
+
+                    <table>
+                    <thead>
+                            <tr>
+                                <th>PO ID</th>
+                                <th>Supplier</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Received</th>
+                                <th>Status</th>
+                            </tr>
+                    </thead>
+
+                    <tbody id="dashboardIncomingPurchaseOrdersTable"></tbody>
+                    </table>
+                    </div>
+
+        </section>
+
+        <section id= "productsSection">
+            <h2><i class="fa-solid fa-tags"></i> Products</h2>
+
+            <button id="addProductBtn" class="input-style-btn"><i class="fa-solid fa-plus"></i> Add Product</button>
+
+            <div id="productForm" class="hidden">
+                
+                <input type="text" id="productName" placeholder="Product Name">
+                <input type="number" id="productPrice" placeholder="Product Price">
+                <input type="number" id="productQuantity" placeholder="Stock Quantity">
+
+             <button id="saveProductBtn" class="input-style-btn" ><i class="fa-solid fa-floppy-disk"></i> Save Product</button>  
+             <p id="productMessage"></p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="productTable">
+                </tbody>
+            </table>
+
+    
+        </section>
+
+        <section id="customersSection">
+            <h2><i class="fa-solid fa-user"></i> Customers</h2>
+
+            <button id="addCustomerBtn" class="input-style-btn"><i class="fa-solid fa-plus"></i> Add Customer</button>
+
+            <div id="customerForm" class="hidden">
+            
+                <input type="text" id="customerName" placeholder="Name">
+                <input type="number" id="customerPhone" placeholder="Phone Number">
+                <input type="text" id="customerEmail" placeholder="Email">
+
+             <button id="saveCustomerBtn" class="input-style-btn"><i class="fa-solid fa-floppy-disk"></i> Save Customer</button>   
+             <p id="customerMessage"></p>
+            
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="customerTable">
+                </tbody>
+            </table>
+        </section>
+
+         <section id="ordersSection">
+            <h2><i class="fa-solid fa-cart-shopping"></i> Sales Orders</h2>
+
+            <button id="addOrderBtn" class="input-style-btn"><i class="fa-solid fa-pen-clip"></i> Create Sales Order</button>
+
+            <div id="orderForm" class="hidden">
+            
+                  <select id="orderCustomerID">
+                    <option vaulue="">Select Customer</option>
+                </select>
+
+                  <select id="orderProductID">
+                    <option vaulue="">Select Product</option>
+                </select>
+
+                <input type="number" id="orderQuantity" placeholder="Quantity">
+
+                <button  id="addOrderLineBtn" class="input-style-btn"><i class="fa-solid fa-plus"></i>
+                    Add Line
+                </button>
+
+             <button id="saveOrderBtn" class="input-style-btn"><i class="fa-solid fa-floppy-disk"></i> Save Sales Order</button>   
+             <p id="orderMessage"></p>
+
+             <h3>Current Order Lines</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Line Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="currentOrderLinesTable">
+                        </tbody>
+                    </table>
+                    
+                    <p>
+                    <strong>Order Total:</strong>
+                    <span id="currentOrderTotal">0.00 $</span>
+                    </p>
+                            
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID - Name</th>
+                        <th>Order Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                      
+
+                    </tr>
+                </thead>
+
+                <tbody id="orderTable">
+                </tbody>
+            </table>
+
+
+            <h2>Order Lines</h2>
+
+            
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order Line ID</th>
+                        <th>Order ID</th>
+                        <th>Product ID - Name</th>
+                        <th>Quantity</th>
+                        <th>Fullfilled Quantity</th>
+                        <th>Remaining Quantity</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="orderLineTable">
+                </tbody>
+            </table>
+
+        </section>
+
+          <section id= "purchaseOrdersSection">
+            <h2><i class="fa-solid fa-truck"></i> Purchase Orders</h2>
+
+            <button id="addPurchaseOrderBtn" class="input-style-btn"><i class="fa-solid fa-pen-clip"></i> Create Purchase Order</button>
+            
+            <div id="poForm" class="hidden">
+            
+                <select id="poSupplierID">
+                    <option vaulue="">Select Supplier</option>
+                </select>
+                
+                <select id="poProductID">
+                    <option vaulue="">Select Product</option>
+                </select>
+
+                <input type="number" id="poQuantity" placeholder="Quantity">
+        
+             <button id="savePurchaseOrderBtn" class="input-style-btn"><i class="fa-solid fa-floppy-disk"></i> Save Purchase Order</button>   
+             <p id="purchaseOrderMessage"></p>
+            
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>PO ID</th>
+                        <th>Supplier ID</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Received Quantity</th>
+                        <th>Status</th>
+                        <th>Receive</th>
+                        
+
+                    </tr>
+                </thead>
+
+                <tbody id="purchaseOrderTable">
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+
+         <section id="suppliersSection">
+            <h2><i class="fa-solid fa-truck-ramp-box"></i> Suppliers</h2>
+
+            <button id="addSupplierBtn" class="input-style-btn"><i class="fa-solid fa-plus"></i> Add Supplier</button>
+
+            <div id="supplierForm" class="hidden">
+                
+                <input type="text" id="supplierName" placeholder="Supplier Name">
+                <input type="number" id="supplierPhone" placeholder="Supplier Phone">
+                <input type="email" id="supplierEmail" placeholder="Supplier Email">
+
+             <button id="saveSupplierBtn" class="input-style-btn" ><i class="fa-solid fa-floppy-disk"></i> Save Supplier</button>  
+             <p id="supplierMessage"></p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplier ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="supplierTable">
+                </tbody>
+            </table>
+
+            
+            <button class="input-style-btn" id="supplierProductsBtn"><i class="fa-solid fa-eye"></i> View Supplier Products</button>
+
+              <button class="input-style-btn" id="addSupplierProductBtn"><i class="fa-solid fa-plus"></i> Add Supplier Product</button>
+            <div id="supplierProductForm" class="hidden">
+                
+             <select id="spSupplier">
+                    <option vaulue="">Select Supplier</option>
+                </select>
+
+                  <select id="supplierProductName">
+                    <option vaulue="">Select Product</option>
+                </select>
+                <input type="number" id="supplierPrice" placeholder="Supplier Price">
+
+             <button id="saveSupplierProductBtn" class="input-style-btn" ><i class="fa-solid fa-floppy-disk"></i> Save Supplier Product</button>  
+             <p id="supplierProductMessage"></p>
+            </div>
+             <section id="supplierProductsSection" class="hidden">
+            <h2><i class="fa-solid fa-truck-ramp-box"></i> Supplier Products</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Supplier ID - Name</th>
+                        <th>Product ID - Name</th>
+                        <th>Supplier Price</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="supplierProductTable">
+                </tbody>
+            </table>
+        </section>
+
+        </section>
+
+           <section id="inventorySection">
+            <h2><i class="fa-solid fa-warehouse"></i> Inventory</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Inverntory ID</th>
+                        <th>Product ID - Name</th>
+                        <th>Quantity Change</th>
+                        <th>Transaction Type</th>
+                        <th>Transaction Date</th>
+                    
+
+                    </tr>
+                </thead>
+
+                <tbody id="inventoryTable">
+                </tbody>
+            </table>
+            
+           </section>
+           
+           
+           
+            
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

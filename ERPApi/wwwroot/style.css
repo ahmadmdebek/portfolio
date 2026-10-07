@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: bolder;
+    background: #f4f6f8;
+}
+
+header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    background: white;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 76px;
+    z-index: 999;
+}
+
+nav button  {
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-right: 10px;
+    border-color: black;
+    cursor: pointer;
+}
+
+.dropdown   {
+
+    display: inline-block;
+    position: relative;
+
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1001;
+}
+
+.dropdown-menu button {
+    display: flex;
+    width: 100%;
+    padding: 10px 12px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: white;
+    color: #111827;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f3f4f6;
+}
+
+.input-style-btn{
+    width: auto;
+    max-width: none;
+    padding: 13px 16px;
+    margin-right: 10px;
+    margin: 8px 0;
+    
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    
+    background: #f9fafb;
+    color: #111827;
+    
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    
+    transition: all 0.25s ease;
+}
+
+.input-style-btn:hover {
+    background: #ffffff;
+    border-color: #9ca3af;
+}
+
+.input-style-btn:focus {
+    background: #ffffff;
+    border-color: #1f2937;
+    box-shadow: 0 0 0 4px rgba(31, 41, 55, 0.08);
+}
+
+.input-style-btn1 {
+   width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: green;
+    font-size: 25px;
+    
+}
+
+.input-style-btn2 {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: red;
+    font-size: 25px;
+    
+}
+
+.input-style-btn1:hover {
+  transform: scale(1.5);
+    background: #ffffff;
+    color: black;
+}
+
+
+
+.input-style-btn2:hover {
+    transform: scale(1.5);
+    background: #ffffff;
+    color: black;
+}  
+
+.receive-btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.receive-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.receive-btn:hover img {
+    transform: scale(1.5);
+}
+
+.fulfill-btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.fulfill-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.fulfill-btn:hover img {
+    transform: scale(1.5);
+}
+
+
+input,
+select {
+    width: 100%;
+    max-width: 350px;
+    padding: 13px 16px;
+    margin: 8px 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+    color: #111827;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+input:hover,
+select:hover {
+    background: #ffffff;
+    border-color: #9ca3af;
+}
+
+input:focus,
+select:focus {
+    background: #ffffff;
+    border-color: #1f2937;
+    box-shadow: 0 0 0 4px rgba(31, 41, 55, 0.08);
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status.pending {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.status.posted {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status.received {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+
+.status.completed {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: #dcfce7;
+    color: #15803d;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.transaction {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.transaction.sale   {  
+
+  background-color: #dcfce7;
+  color: #15803d;
+}
+.transaction.purchase-receipt   {
+ 
+    background-color: #fee2e2;
+    color: #b91c1c;
+
+}
+
+
+
+
+
+main {
+    padding: 25px;
+}
+
+.dashboard-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.dashboard-panel    {
+
+    width: 100%;
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-panel h2{
+
+    margin-top: 0;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+table {
+    width: 100%;
+    min-width: 700px;
+    background: white;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #e5e7eb;
+    position: sticky;
+    top: 165px;
+    z-index: 998;
+    white-space: nowrap;
+}
+
+.inventory-status   {
+
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.inventory-status.in-stock  {
+
+    background-color: #dcfce7;
+    color: #15803d;
+
+}
+
+.inventory-status.low-stock {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.inventory-status.out-of-stock  {
+
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+#productMessage, #customerMessage, #orderMessage, #purchaseOrderMessage, #supplierMessage, #supplierProductMessage  {
+
+    color: #15803d;
+}
+
+
+.hidden {
+
+    display: none;
+}
+
