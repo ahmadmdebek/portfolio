@@ -13,8 +13,12 @@
  </head>
 <body>
     
-  
 
+     <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="dual-ring"></div>
+    </div>
+    
     <nav class="nav-links">
 
         <div class="name">
@@ -33,6 +37,7 @@
 
 
      <section id="Resume" class="resume">
+        
 
         <div class="resume-preview">
             <img src="images/resume-preview.png" alt="Resume Preview">
@@ -178,10 +183,10 @@
                 <i class="fa-solid fa-certificate"></i>
             </div>
 
-            <h2>MyDolphin Academy Certificate</h2>
+            <h2>Web Development Certificate</h2>
 
             <p>
-                Certificate demonstrating my knowledge and skills in  SQL Database, Web Development, API Integration, Visual Dolphin Accounting & Inventory.
+                Certificate demonstrating my knowledge and skills in web development.
             </p>
 
             <span>Hover to view certificate</span>
@@ -193,7 +198,7 @@
         <div class="certificate-back">
 
             <img src="images/certificate2.jpg"
-                 alt="MyDolphin Academy Certificate">
+                 alt="Web Development Certificate">
 
         </div>
 
@@ -215,10 +220,10 @@
                 <i class="fa-solid fa-certificate"></i>
             </div>
 
-            <h2>Integrated Digital Systems (IDS) Training Certificate</h2>
+            <h2>Web Development Certificate</h2>
 
             <p>
-                Certificate demonstrating my knowledge and skills in PHP-OOP, SQL Database, Web Development.
+                Certificate demonstrating my knowledge and skills in web development.
             </p>
 
             <span>Hover to view certificate</span>
@@ -230,7 +235,7 @@
         <div class="certificate-back">
 
             <img src="images/certificate1.jpg"
-                 alt="IDS Training Certificate">
+                 alt="Web Development Certificate">
 
         </div>
 
@@ -285,6 +290,25 @@
 
 
     <script>
+
+                // Loading screen
+
+        const loadingScreen = document.getElementById("loading-screen");
+
+        const startTime = Date.now();
+
+        window.addEventListener("load", function () {
+
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, 2000 - elapsedTime);
+
+            setTimeout(function () {
+                loadingScreen.classList.add("hidden");
+            }, remainingTime);
+
+        });
+
+
         const navbar = document.querySelector('.nav-links');
 
         window.addEventListener('scroll', function () {

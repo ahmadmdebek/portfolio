@@ -14,6 +14,13 @@
 
 <body>
 
+
+        <!-- Loading Screen -->
+         
+        <div id="loading-screen">
+            <div class="dual-ring"></div>
+        </div>
+
         <!-- Navigation -->
 
         <nav class="project-nav">
@@ -358,6 +365,27 @@
 </button> 
 
         <script>
+
+
+        // Loading screen
+
+        const loadingScreen = document.getElementById("loading-screen");
+
+        const startTime = Date.now();
+
+        window.addEventListener("load", function () {
+
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, 2000 - elapsedTime);
+
+            setTimeout(function () {
+                loadingScreen.classList.add("hidden");
+            }, remainingTime);
+
+        });
+
+        
+        
         const navbar = document.querySelector('.nav-links');
 
         window.addEventListener('scroll', function () {
