@@ -8,7 +8,7 @@ Welcome to my personal portfolio! This repository contains the source code for m
 
 ## 👨‍💻 About Me
 
-I am an IT enthusiast passionate about software development, technology, and continuous learning. I enjoy building practical projects that help me strengthen my technical knowledge, solve problems, and develop real-world skills.
+I am a Computer and Communications engineer, enthusiast & passionate about software development, technology, and continuous learning. I enjoy building practical projects that help me strengthen my technical knowledge, solve problems, and develop real-world skills.
 
 This portfolio serves as a central place to present my work, technical experience, and ongoing learning journey.
 
