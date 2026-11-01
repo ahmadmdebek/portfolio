@@ -249,38 +249,73 @@
 
 
 
-     <section id="Contact" class="contact">
+<section id="Contact" class="contact">
 
-        <div class="contact-preview">
-        
-        <h1>Contact</h1>
+    <div class="contact-preview">
+    <h1>Contact</h1>
 
-        </div>
+    <div class="contact-details">
 
-        <div class="contact-content">
-
-            <div class="contact-item">
-
+    <div class="contact-item">
+        <span>
             <i class="fa-solid fa-phone"></i>
-            <h4>+96176948481</h4>
-            </div>
-            
-            <div class="contact-item">
+            PHONE
+        </span>
+        <a href="tel:+96176948481">+961 76 948 481</a>
+    </div>
 
-             <i class="fa-solid fa-envelope"></i>
-             <h4>ahmad.99debek@gmail.com</h4>
-            
-            </div>  
-            
-            <div class="contact-item">
+    <div class="contact-item">
+        <span>
+            <i class="fa-solid fa-envelope"></i>
+            EMAIL
+        </span>
+        <a href="mailto:ahmad.99debek@gmail.com">
+            ahmad.99debek@gmail.com
+        </a>
+    </div>
 
-             <i class="fa-solid fa-location-dot"></i>
-             <h4>Beirut, Lebanon</h4>
-            
-            </div> 
-        
+    <div class="contact-item">
+        <span>
+            <i class="fa-solid fa-location-dot"></i>
+            LOCATION
+        </span>
+        <h4>Beirut, Lebanon</h4>
+    </div>
+
+</div>
+</div>
+
+    <div class="contact-content">
+
+        <form id="contactForm" class="contact-form">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name"
+                    placeholder="Enter Your Full Name" required>
             </div>
-    </section>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email"
+                    placeholder="Enter Your Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5"
+                    placeholder="Enter Your Message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+            <p id="form-status" class="form-status"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
 
 
 <button id="scrollTopBtn" title="Go to top">
@@ -288,6 +323,7 @@
 </button>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
 
@@ -337,7 +373,97 @@ scrollTopBtn.addEventListener("click", () => {
     });
 });
 
+
+    
+// Initialize EmailJS
+(function () {
+    emailjs.init({
+        publicKey: "tXIMLpKFUCpnEAR0D"
+    });
+})();
+
+// Contact Form Submission
+
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("form-status");
+
+contactForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value.trim();
+
+    // Clear previous status
+    formStatus.textContent = "";
+    formStatus.className = "form-status";
+
+    // Validate email format
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(email)) {
+
+        formStatus.textContent = "Please enter a valid email address.";
+        formStatus.classList.add("error");
+
+        emailInput.focus();
+
+        return;
+    }
+
+    // Disable button only after successful validation
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    // Prepare email parameters
+    const templateParams = {
+        name: document.getElementById("name").value.trim(),
+        email: email,
+        message: document.getElementById("message").value.trim()
+    };
+
+    // Send email using EmailJS
+    emailjs.send(
+        "service_4my5u0a",
+        "template_wc9vfz9",
+        templateParams
+    )
+    .then(function () {
+
+        formStatus.textContent =
+            "✓ Your message has been sent successfully! I'll get back to you soon.";
+
+        formStatus.classList.add("success");
+
+        contactForm.reset();
+
+    })
+    .catch(function (error) {
+
+        console.error("EmailJS Error:", error);
+
+        formStatus.textContent =
+            "✕ Failed to send your message. Please try again.";
+
+        formStatus.classList.add("error");
+
+    })
+    .finally(function () {
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+
+    });
+
+});
+
+
+
     </script>
+
+   
 
 </body>
 
